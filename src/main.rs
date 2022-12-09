@@ -148,11 +148,9 @@ fn step(grid: &mut Vec<Vec<CellState>>) {
 
     let mut updates: Vec<(usize, usize, CellState)> = Vec::new();
 
-    let mut y: usize = 0;
-    while y < grid.len() {
+    for y in  0..grid.len() {
 
-        let mut x: usize = 0;
-        while x < grid[y].len() {
+        for x in 0..grid[y].len() {
 
             let num_neighbors: u8 = number_neighbors(x, y, &grid);
 
@@ -167,11 +165,8 @@ fn step(grid: &mut Vec<Vec<CellState>>) {
                 updates.push((x, y, CellState::Alive));
 
             }
-            x += 1;
 
         }
-
-        y += 1;
 
     }
     
